@@ -19,43 +19,13 @@ int init()
 
 int start()
 {
-      /*lotsize = MathRound(AccountBalance()/15000);
-      if (lotsize > 25 ){
-         lotsize = 25;
-      }
-      
-     if(AccountBalance() >= 100000 && AccountBalance() < 200000){
-         lotsize = 2;
-      }
-      else if( AccountBalance() >= 200000 && AccountBalance() < 300000){
-         lotsize = 3;
-      }
-      else if( AccountBalance() >= 300000 && AccountBalance() < 400000){
-         lotsize = 4;
-      }
-      else if( AccountBalance() >= 400000 && AccountBalance() < 500000){
-         lotsize = 5;
-      }     
-       else if( AccountBalance() >= 500000 && AccountBalance() < 600000){
-         lotsize = 6;
-      }
-       else if( AccountBalance() >= 600000 && AccountBalance() < 700000){
-         lotsize = 7;
-      }
-      else if( AccountBalance() >= 700000 && AccountBalance() < 800000){
-         lotsize = 8;
-      }  
-      else if( AccountBalance() >= 800000 && AccountBalance() < 900000){
-         lotsize = 9;
-      }
-      else if( AccountBalance() >= 900000 && AccountBalance() < 1000000){
-         lotsize = 10;
-      }*/
-      
-     
+      //lotsize = MathRound(AccountBalance()/15000);
+      //if (lotsize > 25 ){
+      //   lotsize = 25;
+      //}
 
       if(currentdate != TimeDay(TimeCurrent())){
-        // Print("AccountBalanceEURJPY1 = " + AccountBalance());
+         Print("AccountBalanceGBPJPY5 = " + AccountBalance());
          currentdate= TimeDay(TimeCurrent());
       }
 
@@ -64,26 +34,6 @@ int start()
          
       if(OrdersTotal()<OpenOrders)
       {  
-      
-         OrderSelect(OrdersHistoryTotal()-1, SELECT_BY_POS,MODE_HISTORY);
-         //Print("Order profit :" + OrderProfit() + " OrderTicket :" + OrderTicket());
-         if (OrderProfit()>0 && OrderType()==OP_BUY)
-         {
-            nexttrade="short";
-         }
-         if (OrderProfit()<0 && OrderType()==OP_BUY)
-         {
-            nexttrade="short";
-         }
-          if (OrderProfit()>0 && OrderType()==OP_SELL)
-         {
-            nexttrade="short";
-         }
-         if (OrderProfit()<0 && OrderType()==OP_SELL)
-         {
-            nexttrade="short";
-         }
-         
          
          if(lasttradelong==1)
          {     
