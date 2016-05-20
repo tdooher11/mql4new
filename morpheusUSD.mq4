@@ -1,6 +1,6 @@
 extern double lotsize = 1.0;
-extern double TrailingStop = 1.0;
-extern double TakeProfit = 4.0; 
+extern double TrailingStop = 0.01;
+extern double TakeProfit = 0.04; 
 extern int tradeincrement = 3600;
 extern int magicnum = 0;
 
