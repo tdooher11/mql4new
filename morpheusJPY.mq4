@@ -10,6 +10,7 @@ datetime lasttrade = 0;
 int lasttradelong=0;
 int ticket = 0;
 string nexttrade="long";
+bool currentorderopen = false;
 
 int init()
 {
@@ -25,14 +26,29 @@ int start()
       //}
 
       if(currentdate != TimeDay(TimeCurrent())){
-         Print("AccountBalanceGBPJPY5 = " + AccountBalance());
+        // Print("AccountBalanceUSDJPY1 = " + AccountBalance());
          currentdate= TimeDay(TimeCurrent());
       }
 
       if (TimeCurrent() >= lasttrade+tradeincrement)
       {
+      
+      currentorderopen=false;
+      for(int i=0;i<OrdersTotal();i++)
+      {
+         Print("inside for loop");
+         OrderSelect(i, SELECT_BY_POS, MODE_TRADES);
+         Print("order symbol " + OrderSymbol());
+         Print("symbol : " + Symbol());
+         if(OrderSymbol()==Symbol())
+         {
+            Print("inside order open = true");
+            currentorderopen=true;
+            break;
+         }    
+      }
          
-      if(OrdersTotal()<OpenOrders)
+      if(currentorderopen==false)
       {  
          
          if(lasttradelong==1)
