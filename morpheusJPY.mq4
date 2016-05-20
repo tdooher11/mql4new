@@ -36,13 +36,9 @@ int start()
       currentorderopen=false;
       for(int i=0;i<OrdersTotal();i++)
       {
-         Print("inside for loop");
          OrderSelect(i, SELECT_BY_POS, MODE_TRADES);
-         Print("order symbol " + OrderSymbol());
-         Print("symbol : " + Symbol());
          if(OrderSymbol()==Symbol())
          {
-            Print("inside order open = true");
             currentorderopen=true;
             break;
          }    
